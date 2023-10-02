@@ -11,7 +11,7 @@ namespace ContactPro.Services
         {
             try
             {
-                if(fileData == null)
+                if(fileData == null || fileData.Length == 0)
                 {
                     return _defaultImage;
                 }

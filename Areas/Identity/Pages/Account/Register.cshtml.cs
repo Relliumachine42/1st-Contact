@@ -171,7 +171,12 @@ namespace ContactPro.Areas.Identity.Pages.Account
         {
             try
             {
-                return Activator.CreateInstance<AppUser>();
+                 AppUser appUser = Activator.CreateInstance<AppUser>();
+
+                appUser.FirstName = Input.FirstName;
+                appUser.LastName = Input.LastName;
+
+                return appUser;
             }
             catch
             {
