@@ -66,27 +66,24 @@ namespace ContactPro.Controllers
 
         public async Task<IActionResult> SearchContacts(string? searchString)
         {
-            string? userId = _userManager.GetUserId(User);
+            string userId = _userManager.GetUserId(User)!;
+            List<Contact> contacts = await _context.Contacts.Include(c => c.Categories).Where(c => c.AppUserId == userId).ToListAsync();
 
             List<Contact> model = new List<Contact>();
 
             if (string.IsNullOrEmpty(searchString))
             {
-                model = await _context.Contacts.Include(c => c.Categories).Where(c => c.AppUserId == userId).ToListAsync();
+                model = contacts;
             }
             else
             {
-                model = await _context.Contacts.Include(c => c.Categories)
-                                               .Where(c => c.AppUserId == userId && c.FullName!.ToLower()
-                                                  .Contains(searchString.ToLower()))
-                                               .OrderBy(c => c.LastName)
-                                               .ThenBy(c => c.FirstName)
-                                               .ToListAsync();
+                model = contacts.Where(c => c.FullName!.ToLower().Contains(searchString.ToLower()))
+                    .OrderBy(c => c.LastName)
+                    .ThenBy(c => c.LastName).ToList();
             }
 
             List<Category> categories = await _context.Categories.Where(c => c.AppUserId == userId).ToListAsync();
             ViewData["CategoriesList"] = new MultiSelectList(categories, "Id", "Name");
-
             ViewData["SearchString"] = searchString;
 
             return View(nameof(Index), model);

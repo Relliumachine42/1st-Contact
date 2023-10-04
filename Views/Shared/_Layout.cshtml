@@ -8,15 +8,27 @@
     <!-- App favicon -->
     <link rel="shortcut icon" href="~/favicon_io/favicon.ico">
 
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+    <!--fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;600;700;800&family=Roboto:ital,wght@0,100;0,400;0,900;1,100;1,300;1,500;1,900&display=swap"
+          rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+@*     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+ *@    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Contact.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
                     <img src="~/img/1stContact.png" class="m-0 p-0" height="100" />
                 </a>
                 @if (!User.Identity!.IsAuthenticated)
@@ -39,9 +51,7 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index"><i class="bi bi-house-door-fill"></i></a>
-                        </li>
+ 
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -49,27 +59,49 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 content" id="mainHero">
+            <section class="container h-100">               
             @RenderBody()
+            </section>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-@*             <ul class="social-icon color-tertiary md-size justify-content-start">
-                <li><a href="https://github.com/Relliumachine42"><i class="fab fa-github"></i></a></li>
-                <li><a href="mailto:glennschwartz42@gmail.com"><i class="far fa-envelope"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/glenn-schwartz/"><i class="fab fa-linkedin-in"></i></a></li>
-                <li><a href="https://schwartz-portfolio.netlify.app/"><i class="fas fa-link"></i></a></li>
-            </ul> *@
-            &copy; 2023 - 1st Contact
+    <footer class="footer container-fluid">
+        <div class="row align-items-center py-2">
+            <div class="col">
+                <div class="row align-items-center gy-2">
+                    <div class="col d-flex justify-content-center justify-content-md-start order-last order-md-first copyright">
+                        &copy; @DateTime.Now.Year All Rights Reserved
+                    </div>
+                    <div class="col d-flex justify-content-center">
+                        <img src="/img/1stContact.png" height="75">
+                    </div>
+                    <div class="col-12 col-md d-flex justify-content-center justify-content-md-end">
+                        <a href="https://github.com/Relliumachine42" class="socialicons"><i class="bi bi-github p-2 "></i></a>
+                        <a href="mailto:glennschwartz42@gmail.com" class="socialicons"><i class="bi bi-envelope p-2"></i></a>
+                        <a href="https://www.linkedin.com/in/glenn-schwartz/" class="socialicons"><i class="bi bi-linkedin p-2"></i></a>
+                        <a href="https://schwartz-portfolio.netlify.app/" class="socialicons"><i class="bi bi-link p-2 "></i></a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
     </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <!--Sweet Alerts-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(function () {
+            const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+            const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+        });
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+@*     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

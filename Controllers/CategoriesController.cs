@@ -90,7 +90,7 @@ namespace ContactPro.Controllers
             {
                 GroupName = category.Name,
                 EmailAddress = string.Join(";", emails),
-                EmailSubject = $"Group Message: End of cohort party for {category.Name}"
+                EmailSubject = $"Group Message: {category.Name}"
             };
 
             ViewData["EmailContacts"] = category.Contacts.ToList();
