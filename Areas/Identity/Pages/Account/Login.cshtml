@@ -10,7 +10,6 @@
     <div class="col-md-4">
         <section>
             <form id="account" method="post">
-                <h2>Use a local account to log in.</h2>
                 <hr />
                 <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
                 <div class="form-floating mb-3">
@@ -45,26 +44,23 @@
                 </div>
             </form>
         </section>
+        <section>
+            <hr />
+            <div class="mb-1 text-center">
+                <form class="" id="account" method="post">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-8 btn-block">
+                                <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoLoginEmail">Demo Login</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
     </div>
     <div class="col-12 col-md-6">
         <img src="~/img/1stContact.png" class="img-fluid" />
-    </div>
-    <div class="col-md-6 col-md-offset-2">
-        <section>
-            <h3>Use a Demo Account to log in.</h3>
-            <hr />
-        <div class="mb-1 text-center">
-        <form class="" id="account" method="post">
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-8 btn-block">
-                        <button type="submit" style="width:inherit;height:min-content" class="btn btn-primary p-10 m-2" name="demoEmail" value="DemoLoginEmail">Demo Login</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-        </section>
     </div>
 </div>
 
