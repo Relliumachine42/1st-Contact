@@ -52,8 +52,8 @@ namespace ContactPro.Controllers
             {
                 try
                 {
-                    string? adminEmail = _configuration["AdminLoginEmail"] ?? Environment.GetEnvironmentVariable("AdminLoginEmail");
-                    await _emailService.SendEmailAsync(adminEmail!, $"Contact Me Message From - {appUser.FullName}", message!);
+                    string? contactEmail = _configuration["ContactMeEmail"] ?? Environment.GetEnvironmentVariable("ContactMeEmail");
+                    await _emailService.SendEmailAsync(contactEmail!, $"1st Contact Message From - {appUser.FullName} - {appUser.Email}", message!);
                     swalMessage = "Email sent successfully!";
                 }
                 catch (Exception)
@@ -62,10 +62,13 @@ namespace ContactPro.Controllers
                     throw;
                 }
 
+
+            } else
+            {
                 swalMessage = "Error: Unable to send email.";
 
             }
-            return RedirectToAction("Index", new { swalMessage });
+            return RedirectToAction("ContactMe", new { swalMessage });
         }
 
         public IActionResult Index()
