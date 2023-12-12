@@ -27,8 +27,10 @@ namespace ContactPro.Controllers
         }
 
         [Authorize]
-        public async Task<IActionResult> ContactMe()
+        public async Task<IActionResult> ContactMe(string? swalMessage = null)
         {
+            ViewData["SwalMessage"] = swalMessage;
+
             string? appUserId = _userManager.GetUserId(User);
             
             if (appUserId == null)
