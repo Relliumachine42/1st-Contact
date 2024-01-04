@@ -19,73 +19,78 @@
     <!--Bootstrap icons-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
 
-@*     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
- *@    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*     <link rel="stylesheet" href="~/css/style.css" asp-append-version="true" />
+    *@
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/Contact.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/1stContact.png" class="m-0 p-0" height="100" />
-                </a>
-                @if (!User.Identity!.IsAuthenticated)
-                {
-                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">1st Contact</a>
-                }
-                else
-                {
-                    <a class="navbar-brand nav-link dropdown-toggle" data-bs-toggle="dropdown">1st Contact</a>
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index">My Contacts</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
-                        <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ContactMe">Contact Me</a>
 
+    <div class="main-wrapper">
+
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container-fluid">
+                    <a asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/img/1stContact.png" class="m-0 p-0" height="100" />
+                    </a>
+                    @if (!User.Identity!.IsAuthenticated)
+                    {
+                        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">1st Contact</a>
+                    }
+                    else
+                    {
+                        <a class="navbar-brand nav-link dropdown-toggle" data-bs-toggle="dropdown">1st Contact</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-area="" asp-controller="Contacts" asp-action="Index">My Contacts</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Categories" asp-action="Index">Categories</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="ContactMe">Contact Me</a>
+
+                        </div>
+                    }
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                        <ul class="navbar-nav flex-grow-1">
+                        </ul>
+                        <partial name="_LoginPartial" />
                     </div>
-                }
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
- 
-                    </ul>
-                    <partial name="_LoginPartial" />
+                </div>
+            </nav>
+        </header>
+        <div class="container h-100">
+            <main role="main" class="content" id="mainHero">
+                <section>
+                    @RenderBody()
+                </section>
+            </main>
+        </div>
+
+        <footer class="footer container-fluid">
+            <div class="row align-items-center py-2">
+                <div class="col">
+                    <div class="row align-items-center gy-2">
+                        <div class="col d-flex justify-content-center justify-content-md-start order-last order-md-first copyright">
+                            &copy; @DateTime.Now.Year All Rights Reserved
+                        </div>
+                        <div class="col d-flex justify-content-center">
+                            <img src="/img/1stContact.png" height="75">
+                        </div>
+                        <div class="col-12 col-md d-flex justify-content-center justify-content-md-end">
+                            <a href="https://github.com/Relliumachine42" class="socialicons"><i class="bi bi-github p-2 "></i></a>
+                            <a href="mailto:glennschwartz42@gmail.com" class="socialicons"><i class="bi bi-envelope p-2"></i></a>
+                            <a href="https://www.linkedin.com/in/glenn-schwartz/" class="socialicons"><i class="bi bi-linkedin p-2"></i></a>
+                            <a href="https://schwartz-portfolio.netlify.app/" class="socialicons"><i class="bi bi-link p-2 "></i></a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3 content" id="mainHero">
-            <section class="container h-100">               
-            @RenderBody()
-            </section>
-        </main>
+        </footer>
     </div>
 
-    <footer class="footer container-fluid">
-        <div class="row align-items-center py-2">
-            <div class="col">
-                <div class="row align-items-center gy-2">
-                    <div class="col d-flex justify-content-center justify-content-md-start order-last order-md-first copyright">
-                        &copy; @DateTime.Now.Year All Rights Reserved
-                    </div>
-                    <div class="col d-flex justify-content-center">
-                        <img src="/img/1stContact.png" height="75">
-                    </div>
-                    <div class="col-12 col-md d-flex justify-content-center justify-content-md-end">
-                        <a href="https://github.com/Relliumachine42" class="socialicons"><i class="bi bi-github p-2 "></i></a>
-                        <a href="mailto:glennschwartz42@gmail.com" class="socialicons"><i class="bi bi-envelope p-2"></i></a>
-                        <a href="https://www.linkedin.com/in/glenn-schwartz/" class="socialicons"><i class="bi bi-linkedin p-2"></i></a>
-                        <a href="https://schwartz-portfolio.netlify.app/" class="socialicons"><i class="bi bi-link p-2 "></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
@@ -100,7 +105,7 @@
     </script>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-@*     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    @*     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script> *@
     @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -9,53 +9,55 @@
     }
 </style>
 
+<div class="container">
 
-<div class="px-2">
-    <h1>Hello there! </h1>
-    <p>This address book platform was created by me. I hope you've enjoyed using this web application, and you can use the form below to send me an email if you have any questions regarding the structure of this application. </p>
-    <p><strong>Check out my coding portfolio</strong> In the footer I have links to my github repository, my LinkedIn account, and my portfolio website. Feel free to explore and ask questions about anything you find there. </p>
-    <p class="">Email: glennschwartz42@gmail.com</p>
-</div>
-<!-- Start Contact Form  -->
-<div class="p-2 card">
-    <div class="mx-2">
-
-    <h4 class="title mb--10">Send Me a Message</h4>
-    <p class="b3 mb--30">Sign in to autopopulate fields; demo users enter manually.</p>
-    <form method="post" asp-action="ContactMe" class="contact-form--1 row g-3">
-        <div class="col-lg-6 col-md-6 col-12">
-            <div class="form-group">
-                <label class="form-label" for="contact-name">First Name:</label>
-                <input class="form-control" asp-for="FirstName">
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-12">
-            <div class="form-group">
-                <label class="form-label" for="contact-phone">Last Name:</label>
-                <input class="form-control" asp-for="LastName">
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-group">
-                <label class="form-label">Email:</label>
-                <input class="form-control" asp-for="Email">
-            </div>
-        </div>
-        <div class="col-12">
-            <div class="form-group">
-                <label for="contact-message">Message:</label>
-                <textarea class="form-control editor" rows=10 name="message"></textarea>
-            </div>
-        </div>
-        <div class="col-12 text-end">
-            <div class="form-submit">
-                <button type="submit" class="btn btn-primary rounded-pill btnlinks">Send</button>
-            </div>
-        </div>
-    </form>
+    <div class="px-2">
+        <h1>Hello there! </h1>
+        <p>This address book platform was created by me. I hope you've enjoyed using this web application, and you can use the form below to send me an email if you have any questions regarding the structure of this application. </p>
+        <p><strong>Check out my coding portfolio</strong> In the footer I have links to my github repository, my LinkedIn account, and my portfolio website. Feel free to explore and ask questions about anything you find there. </p>
+        <p class="">Email: glennschwartz42@gmail.com</p>
     </div>
+    <!-- Start Contact Form  -->
+    <div class="p-2 card">
+        <div class="mx-2">
+
+            <h4 class="title mb--10">Send Me a Message</h4>
+            <p class="b3 mb--30">Sign in to autopopulate fields; demo users enter manually.</p>
+            <form method="post" asp-action="ContactMe" class="contact-form--1 row g-3">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form-group">
+                        <label class="form-label" for="contact-name">First Name:</label>
+                        <input class="form-control" asp-for="FirstName">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="form-group">
+                        <label class="form-label" for="contact-phone">Last Name:</label>
+                        <input class="form-control" asp-for="LastName">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label class="form-label">Email:</label>
+                        <input class="form-control" asp-for="Email">
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="form-group">
+                        <label for="contact-message">Message:</label>
+                        <textarea class="form-control editor" rows=10 name="message"></textarea>
+                    </div>
+                </div>
+                <div class="col-12 text-end">
+                    <div class="form-submit">
+                        <button type="submit" class="btn btn-primary rounded-pill btnlinks">Send</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- End Contact Form  -->
 </div>
-<!-- End Contact Form  -->
 @section scripts{
 
     @{
